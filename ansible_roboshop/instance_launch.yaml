@@ -1,0 +1,40 @@
+- name: Launching EC2 Instance
+  hosts: local
+  connection: local
+  gather_facts: false
+
+  vars:
+    key: "rsa_devops"
+    sg: "sg-094c43195ae5a0294"
+    ami: "ami-09c813fb71547fc4f"
+    zoneid: "Z097650110LRPT2ALGMEU"
+    domain: "zaws.online"
+
+  tasks:
+    - name: Creating Ec2 Instance
+      amazon.aws.ec2_instance:
+        name: "{{ item }}"
+        key_name: "{{ key }}"
+        instance_type: t2.micro
+        security_group: "{{ sg }}"
+        network:            
+         assign_public_ip: true
+        image_id: "{{ ami }}"
+        tags:
+          Name: "{{ item }}"
+      loop:
+        - mongodb
+      register: ec2_output
+    
+    - name: create route53 record
+      amazon.aws.route53:
+        state: present
+        zone: "{{ domain }}"
+        record: "{{ item.item }}.{{ domain }}" # mongodb.daws86s.fun
+        type: A
+        ttl: 1
+        value: "{{ item.instances[0].public_ip_address }}"
+        overwrite: true
+      loop: "{{ ec2_output.results }}"
+
+        
