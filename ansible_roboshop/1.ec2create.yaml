@@ -21,13 +21,8 @@
         image_id: "{{ ami }}"
         tags:
           Name: "{{ item }}"
-      loop:
-        - mongodb
+      loop: "{{ instances }}"
       register: ec2_output
-    
-    - name: Print Ec2 data
-      debug:
-       msg: "{{ ec2_output }}"
 
     - name: create route53 record
       amazon.aws.route53:
