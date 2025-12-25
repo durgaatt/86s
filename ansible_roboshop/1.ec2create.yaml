@@ -48,3 +48,4 @@
       loop: "{{ ec2_output.results }}"
 
         
+## ansible-playbook -i inventory 1.ec2create.yaml -e 'instances=["mongodb","catalogue",...,"frontend"]'
