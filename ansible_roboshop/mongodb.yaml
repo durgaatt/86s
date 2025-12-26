@@ -4,4 +4,22 @@
   - name: configuring mongodbrepo
     copy:
       src: mongodb.repo
-      dest: /etc/yum.repose.d/mongodb.repo
+      dest: /etc/yum.repos.d/mongodb.repo
+ 
+  - name: Installing MongoDB
+    dnf:
+     name: mongodb-org
+     state: installed
+
+  - name: Start & Enable MongoDB Service
+    service:
+      name: mongod 
+      state: started
+      enabled: yes
+
+  - name: Configuring mongodb  
+    replace:
+      path: /etc/mongod.conf
+      regexp: 127.0.0.1
+      replace: 0.0.0.0
+     
