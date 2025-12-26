@@ -1,5 +1,5 @@
 - name: Configuring MongoDB 
-  hosts: all
+  hosts: mongodb
   tasks:
   - name: configuring mongodbrepo
     copy:
@@ -11,15 +11,17 @@
      name: mongodb-org
      state: installed
 
+  - name: Configuring mongodb  
+    replace:
+      path: /etc/mongod.conf
+      regexp: 127.0.0.1
+      replace: 0.0.0.0
+
   - name: Start & Enable MongoDB Service
     service:
       name: mongod 
       state: started
       enabled: yes
 
-  - name: Configuring mongodb  
-    replace:
-      path: /etc/mongod.conf
-      regexp: 127.0.0.1
-      replace: 0.0.0.0
+  
      
