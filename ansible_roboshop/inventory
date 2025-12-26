@@ -3,3 +3,6 @@ localhost
 
 [mongodb]
 mongodb.zaws.online
+
+[catalogue]
+catalogue.zaws.online
