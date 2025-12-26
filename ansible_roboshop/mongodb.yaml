@@ -3,7 +3,7 @@
   tasks:
   - name: configuring mongodbrepo
     copy:
-      src: mongodb.repo
+      src: mongo.repo
       dest: /etc/yum.repos.d/mongodb.repo
   
   - name: Installing MongoDB
