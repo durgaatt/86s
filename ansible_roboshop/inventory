@@ -15,3 +15,6 @@ redis.zaws.online
 
 [user]
 user.zaws.online
+
+[cart]
+cart.zaws.online
