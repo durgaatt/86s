@@ -21,3 +21,16 @@ cart.zaws.online
 
 [mysql]
 mysql.zaws.online
+
+[shipping]
+shipping.zaws.online
+
+[payment]
+payment.zaws.online
+
+[dispatch]
+dispatch.zaws.online
+
+[rabbitmq]
+rabbitmq.zaws.online
+
