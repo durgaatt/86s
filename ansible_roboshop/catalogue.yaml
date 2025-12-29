@@ -70,9 +70,6 @@
     command: mongosh mongodb.zaws.online --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
     register: catalogue_output
  
-  - name: print catalogue_output
-    debug:
-      msg: "{{ catalogue_output }}"
 
   - name: load products into mongodb
     shell: mongosh --host mongodb.zaws.online </app/db/master-data.js
