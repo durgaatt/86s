@@ -10,5 +10,5 @@ catalogue.zaws.online
 [frontend]
 frontend.zaws.online
 
-[radis]
+[redis]
 redis.zaws.online
