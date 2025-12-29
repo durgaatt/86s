@@ -1,5 +1,6 @@
 - name: setup catalogue server
   hosts: catalogue
+  become: yes
   tasks:
   - name: disable default nodejs
     command: dnf module disable nodejs -y

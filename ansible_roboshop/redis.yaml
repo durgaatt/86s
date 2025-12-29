@@ -1,5 +1,6 @@
 - name: setup redis server
   hosts: redis
+  become: yes
   tasks:
   - name: disable default redis
     command: dnf module disable redis -y

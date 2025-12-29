@@ -1,5 +1,6 @@
 - name: Configuring MongoDB 
   hosts: mongodb
+  become: yes
   tasks:
   - name: configuring mongodbrepo
     copy:

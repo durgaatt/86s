@@ -1,7 +1,6 @@
 - name: Launching EC2 Instance
   hosts: local
   connection: local
-
   vars:
     key: "rsa_devops"
     sg: "sg-094c43195ae5a0294"
@@ -48,4 +47,4 @@
       loop: "{{ ec2_output.results }}"
 
         
-## ansible-playbook -i inventory 1.ec2create.yaml -e 'instances=["mongodb","catalogue",...,"frontend"]'
+## ansible-playbook -i inventory 1.ec2create.yaml -e 'instances=["mongodb","catalogue","frontend","redis","user","cart","mysql","shipping","rabbitmq","payment","dispatch"]'
