@@ -6,3 +6,6 @@ mongodb.zaws.online
 
 [catalogue]
 catalogue.zaws.online
+
+[frontend]
+frontend.zaws.online
