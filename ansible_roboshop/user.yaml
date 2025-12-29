@@ -1,0 +1,65 @@
+- name: setup user server
+  hosts: user
+  become: yes
+  tasks:
+  - name: disable default nodejs
+    command: dnf module disable nodejs -y
+
+  - name: enable nodejs 20
+    command: dnf module enable nodejs:20 -y
+
+  - name: install nodejs
+    dnf:
+      name: nodejs
+      state: present
+
+  - name: create roboshop system user
+    user:
+      name: roboshop
+      comment: RoboShop System user
+      system: true
+      shell: /sbin/nologin
+      home: /app
+  # Safe to remove directory, because 2nd time if we run it will download freshly. no error if does not exist
+  - name: remove app directory
+    file:
+      path: /app
+      state: absent
+
+  - name: create app directory
+    file:
+      state: directory
+      path: /app
+
+  - name: Delete user file
+    file:
+      path: /tmp/user.zip
+      state: absent
+
+  - name: download user application
+    get_url:
+      url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip
+      dest: /tmp/user.zip
+
+  - name: extract user application
+    unarchive:
+      src: /tmp/user.zip
+      dest: /app
+      remote_src: yes
+
+  - name: install dependencies
+    npm:
+      path: /app
+
+  - name: copy user service
+    copy:
+      src: user.service
+      dest: /etc/systemd/system/user.service
+
+  - name: daemon reload enable and start
+    systemd_service:
+      name: user
+      enabled: true
+      state: started
+      daemon_reload: true
+  

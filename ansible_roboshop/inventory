@@ -12,3 +12,6 @@ frontend.zaws.online
 
 [redis]
 redis.zaws.online
+
+[user]
+user.zaws.online
