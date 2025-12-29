@@ -74,14 +74,14 @@
     debug:
       msg: "{{ catalogue_output }}"
 
-  # - name: load products into mongodb
-  #   shell: mongosh --host mongodb.daws86s.fun </app/db/master-data.js
-  #   when: catalogue_output.stdout | int < 0
+  - name: load products into mongodb
+    shell: mongosh --host mongodb.zaws.online </app/db/master-data.js
+    when: catalogue_output.stdout | int < 0
 
   
-  # - name: daemon reload enable and start
-  #   ansible.builtin.systemd_service:
-  #     name: catalogue
-  #     enabled: true
-  #     state: started
-  #     daemon_reload: true
+  - name: daemon reload enable and start
+    systemd_service:
+      name: catalogue
+      enabled: true
+      state: started
+      daemon_reload: true
