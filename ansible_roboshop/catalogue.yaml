@@ -67,7 +67,7 @@
       state: present
 
   - name: connnect to mongodb catalogue
-    command: mongosh mongob.zaws.online --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
+    command: mongosh mongodb.zaws.online --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
     register: catalogue_output
  
   - name: print catalogue_output
