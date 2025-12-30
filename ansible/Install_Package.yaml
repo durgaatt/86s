@@ -1,0 +1,9 @@
+- name: Install Packages
+  inverntory: 54.91.128.48
+  become: yes
+  
+  tasks:
+   - name: Install httpd package
+     yum: 
+      name: httpd
+      state: installed      
