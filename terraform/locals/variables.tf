@@ -39,33 +39,13 @@ variable "cidr" {
 
 variable "ec2_tags" {
   default = {
-    name = "mongodb"
+    name = "test-insttf"
     env = "PROD"
-  } 
+  }
 }
 
 variable "sg_tags" {
   default = {
     name = "allow_all_sg"
   }
-}
-
-variable "zone_name" {
-  default = "zaws.online"
-}
-
-variable "zone_id" {
-  default = "Z097650110LRPT2ALGMEU"
-}
-
-variable "type" {
-  default = "A"
-}
-
-variable "ttl" {
-  default = "1"
-}
-
-variable "instances" {
-    default = [ "mongodb", "catalogue", "cart" ]
 }

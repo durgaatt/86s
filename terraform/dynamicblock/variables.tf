@@ -11,7 +11,7 @@ variable "instance_type" {
 }
 
 variable "sg_name" {
-  default = "allow-all"
+  default = "roboshop_sg"
 }
 
 variable "ingress_from_port" {
@@ -33,39 +33,28 @@ variable "ingress_to_port" {
 variable "protocol" {
   default = "-1"
 }
+
+variable "protocol_tcp" {
+  default = "tcp"
+}
+
 variable "cidr" {
   default = ["0.0.0.0/0"]
 }
 
 variable "ec2_tags" {
   default = {
-    name = "mongodb"
+    name = "test-insttf"
     env = "PROD"
-  } 
+  }
 }
 
 variable "sg_tags" {
   default = {
-    name = "allow_all_sg"
+    name = "roboshop_sg"
   }
 }
 
-variable "zone_name" {
-  default = "zaws.online"
-}
-
-variable "zone_id" {
-  default = "Z097650110LRPT2ALGMEU"
-}
-
-variable "type" {
-  default = "A"
-}
-
-variable "ttl" {
-  default = "1"
-}
-
-variable "instances" {
-    default = [ "mongodb", "catalogue", "cart" ]
+variable "roboshop_ports" {
+  default = [80,22,8080,22017,6379]
 }

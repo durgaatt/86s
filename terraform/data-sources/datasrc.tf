@@ -1,9 +1,13 @@
 data "aws_instances" "info" {
-
+  # filter {
+  #   name   = "instance-state-name"
+  #   values = ["pending", "running", "stopping", "stopped"]
+  # }
   filter {
-    name   = "instance-state-name"
-    values = ["pending", "running", "stopping", "stopped"]
+    name   = "owner-id"
+    values = ["630663132451"]
   }
+  
 }
 
 # resource "aws_ec2_instance_state" "stop_running" {
@@ -12,8 +16,8 @@ data "aws_instances" "info" {
 #   state       = "stopped"
 # }
 
-resource "aws_ec2_instance_state" "start_instances" {
-  for_each    = toset(data.aws_instances.info.ids)
-  instance_id = each.value
-  state       = "running"
-}
+# resource "aws_instance_state" "start_instances" {
+#   for_each    = toset(data.aws_instances.info.ids)
+#   instance_id = each.value
+#   state       = "running"
+# }
