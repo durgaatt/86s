@@ -9,7 +9,33 @@ resource "aws_instance" "test-insttf" {
   }
 
   provisioner "local-exec" {
-    command = echo -e "ec2 vm : ${var.ec2_tags.name} launched successfuly"
+    command = "echo Instance: ${self.tags.Name} launched successfully"
+    when = create
+  }
+
+  provisioner "local-exec" {
+    command = "echo The server's public IP address is ${self.public_ip}"
+    when = create
+  }
+
+  provisioner "local-exec" {
+    command = "echo Instance: ${self.tags.Name} with ip: ${self.private_ip} Terminated successfully"
+    when = destroy
+  }
+
+  provisioner "remote-exec" {
+    connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    password = "DevOps321"
+    host     =  self.public_ip
+  }
+    inline = [
+      "sudo dnf install httpd -y",
+      "sudo  echo '<h1> Welcome to DevOps </h1>' > /var/www/html/index.html",
+      "sudo systemctl enable httpd",
+      "sudo systemctl start httpd"
+    ]
   }
 }
 

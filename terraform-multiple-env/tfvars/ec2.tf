@@ -3,14 +3,11 @@ resource "aws_instance" "test-insttf" {
   instance_type = var.instance_type
   key_name = var.key_name
   vpc_security_group_ids = [aws_security_group.allow-all.id]
-  tags = {
-    Name = var.ec2_tags.name
-    Env = var.ec2_tags.env
+  tags = merge(local.common_tags,
+  {
+    Name = "${local.common_name}.tfvars-env"
   }
-
-  provisioner "local-exec" {
-    command = echo -e "ec2 vm : ${var.ec2_tags.name} launched successfuly"
-  }
+  )
 }
 
 resource "aws_security_group" "allow-all" {
@@ -29,7 +26,9 @@ resource "aws_security_group" "allow-all" {
     cidr_blocks      = var.cidr
   }
 
-   tags = {
-    Name = var.sg_tags.name
+   tags = merge(local.common_tags,
+  {
+    Name = "${local.common_name}.tfvars-env"
   }
+  )
 }
