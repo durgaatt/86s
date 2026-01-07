@@ -7,3 +7,15 @@ module "test-vm" {
   tags = var.tags
 
 }
+
+output "publicip" {
+  value = module.test-vm.public_ip
+}
+
+output "privateip" {
+  value = module.test-vm.private_ip
+}
+
+output "instid" {
+  value = module.test-vm.instance_id
+}
