@@ -18,3 +18,30 @@ variable "environment" {
 variable "vpc_tags" {
     type = map
 }
+
+variable "vpc_pub_subnet_tags" {
+    type = map
+    
+}
+
+variable "vpc_priv_subnet_tags" {
+    type = map
+    
+}
+
+variable "vpc_db_subnet_tags" {
+    type = map
+    
+}
+
+variable "public-cidr-blocks" {
+  type = list
+}
+
+variable "private-cidr-blocks" {
+  type = list
+}
+
+variable "database-cidr-blocks" {
+  type = list
+}
