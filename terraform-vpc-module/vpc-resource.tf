@@ -46,3 +46,14 @@ resource "aws_subnet" "database" {
   }
   )
 }
+
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.this.id
+
+tags = merge(var.vpc_tags,local.common_tags,
+  {
+    Name = "${local.common_name_suffix}-${var.igw_tags.Name}"
+  }
+  )
+
+}

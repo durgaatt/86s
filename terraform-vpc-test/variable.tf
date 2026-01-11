@@ -61,3 +61,11 @@ variable "database-cidr-blocks" {
   default = ["10.10.30.0/24","10.10.31.0/24"]
 }
 
+variable "igw_tags" {
+    type = map
+    default = {
+        Name = "NSP-IGW"
+        DontDelete = "true"
+    }
+}
+

@@ -45,3 +45,7 @@ variable "private-cidr-blocks" {
 variable "database-cidr-blocks" {
   type = list
 }
+
+variable "igw_tags" {
+    type = map
+}

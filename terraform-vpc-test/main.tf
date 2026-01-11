@@ -11,4 +11,5 @@ module "vpc" {
   vpc_pub_subnet_tags = var.vpc_pub_subnet_tags
   vpc_priv_subnet_tags = var.vpc_priv_subnet_tags
   vpc_db_subnet_tags = var.vpc_db_subnet_tags
+  igw_tags = var.igw_tags
 }
