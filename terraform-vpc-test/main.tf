@@ -12,4 +12,10 @@ module "vpc" {
   vpc_priv_subnet_tags = var.vpc_priv_subnet_tags
   vpc_db_subnet_tags = var.vpc_db_subnet_tags
   igw_tags = var.igw_tags
+  public_rt_tags = var.public_rt_tags
+  private_rt_tags = var.private_rt_tags
+  database_rt_tags = var.database_rt_tags
+  eip_tags = var.eip_tags
+  nat_gateway_tags = var.nat_gateway_tags
+  dest-cidr = var.dest-cidr
 }

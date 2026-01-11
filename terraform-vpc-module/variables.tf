@@ -49,3 +49,27 @@ variable "database-cidr-blocks" {
 variable "igw_tags" {
     type = map
 }
+
+variable "public_rt_tags" {
+  type = map
+}
+
+variable "private_rt_tags" {
+  type = map
+}
+
+variable "database_rt_tags" {
+  type = map
+}
+
+variable "dest-cidr" {
+  type = string
+}
+
+variable "eip_tags" {
+  type = map
+}
+
+variable "nat_gateway_tags" {
+   type = map
+}
