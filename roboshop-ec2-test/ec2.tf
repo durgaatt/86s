@@ -1,6 +1,6 @@
 module "test-vm" {
 
-  source = "../terraform-aws-instance"
+  source = "../terraform-aws-instance-module"
   ami_id = var.ami_id
   instance_type = var.instance_type
   sg_ids = var.sg_ids
