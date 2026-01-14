@@ -119,3 +119,8 @@ variable "peering_tags" {
       Name = "nsp-defalut-peering"
     }
 }
+
+variable "is_peering_required" {
+  type    = bool
+  default = true
+}

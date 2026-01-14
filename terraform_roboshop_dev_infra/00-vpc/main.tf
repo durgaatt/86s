@@ -9,6 +9,7 @@ module "vpc" {
     vpc_tags = var.vpc_tags
     dest-cidr = var.dest-cidr
     is_peering_required = true
+    peering_tags = var.peering_tags
 
     # public subnets
     public-cidr-blocks = var.public-cidr-blocks
