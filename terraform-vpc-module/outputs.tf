@@ -16,6 +16,6 @@ output "database_subnet_ids" {
 }
 
 output "aws_vpc_peering_id" {
-  value = aws_vpc_peering_connection.default.id
+  value = aws_vpc_peering_connection.default[*].id
 }
 
