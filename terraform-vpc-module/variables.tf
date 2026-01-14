@@ -102,3 +102,15 @@ variable "nat_gateway_tags" {
       
     }
 }
+
+variable "is_peering_required" {
+  type = bool
+
+}
+
+variable "peering_tags" {
+   type = map
+   default = {
+      
+    }
+}
