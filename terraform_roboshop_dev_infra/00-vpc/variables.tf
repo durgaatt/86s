@@ -113,10 +113,6 @@ variable "dest-cidr" {
   default = "0.0.0.0/0"
 }
 
-variable "is_peering_required" {
-  default = false
-}
-
 variable "peering_tags" {
    type = map
    default = {
