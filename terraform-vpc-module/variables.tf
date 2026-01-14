@@ -5,7 +5,7 @@ variable "cidr_ips" {
 
 variable "tenancy" {
   type = string
-
+  default = "default"
 }
 
 variable "project" {
@@ -86,6 +86,7 @@ variable "database_rt_tags" {
 
 variable "dest-cidr" {
   type = string
+  default = ""
 }
 
 variable "eip_tags" {
