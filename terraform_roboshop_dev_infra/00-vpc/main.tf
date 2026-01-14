@@ -1,9 +1,8 @@
 module "vpc" {
     source = "git::https://github.com/durgaatt/86s.git//terraform-vpc-module?ref=main"
     # VPC
-    cidr_ip = var.cidr_ips
     tenancy = var.tenancy
-    vpc_cidr = var.cidr_ips
+    vpc_cidr = var.cidr_ip
     project = var.project
     environment = var.environment
     vpc_tags = var.vpc_tags
