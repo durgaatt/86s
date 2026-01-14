@@ -61,6 +61,54 @@ variable "database-cidr-blocks" {
   default = ["10.10.30.0/24","10.10.31.0/24"]
 }
 
+variable "igw_tags" {
+    type = map
+    default = {
+        Name = "NSP-IGW"
+        DontDelete = "true"
+    }
+}
+
+variable "public_rt_tags" {
+    type = map
+    default = {
+        Name = "NSP-pub-rt"
+        DontDelete = "true"
+    }
+}
+
+variable "private_rt_tags" {
+    type = map
+    default = {
+        Name = "NSP-priv-rt"
+        DontDelete = "true"
+    }
+}
+
+variable "database_rt_tags" {
+    type = map
+    default = {
+        Name = "NSP-db-rt"
+        DontDelete = "true"
+    }
+}
+
+variable "eip_tags" {
+    type = map
+    default = {
+        Name = "NSP-eip"
+        DontDelete = "true"
+    }
+}
+
+variable "nat_gateway_tags" {
+    type = map
+    default = {
+        Name = "NSP-NATGW"
+        DontDelete = "true"
+    }
+}
+
 variable "dest-cidr" {
   default = "0.0.0.0/0"
 }
