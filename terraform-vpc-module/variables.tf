@@ -5,10 +5,12 @@ variable "cidr_ips" {
 
 variable "tenancy" {
   type = string
+
 }
 
 variable "project" {
   type = string
+  
 }
 
 variable "environment" {
@@ -17,21 +19,29 @@ variable "environment" {
 
 variable "vpc_tags" {
     type = map
+    
 }
 
 variable "vpc_pub_subnet_tags" {
     type = map
+    default = {
+
+    }
     
 }
 
 variable "vpc_priv_subnet_tags" {
     type = map
-    
+    default = {
+      
+    }
 }
 
 variable "vpc_db_subnet_tags" {
     type = map
-    
+    default = {
+      
+    }
 }
 
 variable "public-cidr-blocks" {
@@ -48,18 +58,30 @@ variable "database-cidr-blocks" {
 
 variable "igw_tags" {
     type = map
+    default = {
+      
+    }
 }
 
 variable "public_rt_tags" {
   type = map
+  default = {
+      
+    }
 }
 
 variable "private_rt_tags" {
   type = map
+  default = {
+      
+    }
 }
 
 variable "database_rt_tags" {
   type = map
+  default = {
+      
+    }
 }
 
 variable "dest-cidr" {
@@ -68,8 +90,14 @@ variable "dest-cidr" {
 
 variable "eip_tags" {
   type = map
+  default = {
+      
+    }
 }
 
 variable "nat_gateway_tags" {
    type = map
+   default = {
+      
+    }
 }

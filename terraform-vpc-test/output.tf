@@ -14,6 +14,3 @@ output "db_subnet_id" {
   value = module.vpc.database_subnet_ids
 }
 
-# output "azs" {
-#     value = data.aws_availability_zones.available
-# }
