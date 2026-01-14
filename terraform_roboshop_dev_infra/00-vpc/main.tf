@@ -8,8 +8,7 @@ module "vpc" {
     environment = var.environment
     vpc_tags = var.vpc_tags
     dest-cidr = var.dest-cidr
-    is_peering_required = true
-    peering_tags = var.peering_tags
+   
 
     # public subnets
     public-cidr-blocks = var.public-cidr-blocks
@@ -28,4 +27,8 @@ module "vpc" {
     database-cidr-blocks = var.database-cidr-blocks
     vpc_db_subnet_tags = var.vpc_db_subnet_tags
     database_rt_tags = var.database_rt_tags
+
+    #peering tags 
+    is_peering_required = var.is_peering_required
+    peering_tags        = var.peering_tags
 }
