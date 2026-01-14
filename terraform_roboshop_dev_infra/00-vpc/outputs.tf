@@ -15,5 +15,5 @@ output "db_subnet_id" {
 }
 
 output "aws_vpc_peering_id" {
-  value = module.vpc_peering_connection_id
+  value = module.aws_vpc_peering_id
 }
