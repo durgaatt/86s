@@ -1,5 +1,5 @@
 resource "aws_vpc" "this" {
-  cidr_block       = var.cidr_ips
+  cidr_block       = var.cidr_ip
   instance_tenancy = var.tenancy
   enable_dns_hostnames = true
 
