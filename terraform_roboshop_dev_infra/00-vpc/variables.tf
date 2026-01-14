@@ -64,7 +64,7 @@ variable "database-cidr-blocks" {
 variable "igw_tags" {
     type = map
     default = {
-        Name = "NSP-IGW"
+        Name = "nsp-igw"
         DontDelete = "true"
     }
 }
@@ -72,7 +72,7 @@ variable "igw_tags" {
 variable "public_rt_tags" {
     type = map
     default = {
-        Name = "NSP-pub-rt"
+        Name = "nsp-pub-rt"
         DontDelete = "true"
     }
 }
@@ -80,7 +80,7 @@ variable "public_rt_tags" {
 variable "private_rt_tags" {
     type = map
     default = {
-        Name = "NSP-priv-rt"
+        Name = "nsp-priv-rt"
         DontDelete = "true"
     }
 }
@@ -88,7 +88,7 @@ variable "private_rt_tags" {
 variable "database_rt_tags" {
     type = map
     default = {
-        Name = "NSP-db-rt"
+        Name = "nsp-db-rt"
         DontDelete = "true"
     }
 }
@@ -96,7 +96,7 @@ variable "database_rt_tags" {
 variable "eip_tags" {
     type = map
     default = {
-        Name = "NSP-eip"
+        Name = "nsp-eip"
         DontDelete = "true"
     }
 }
@@ -104,7 +104,7 @@ variable "eip_tags" {
 variable "nat_gateway_tags" {
     type = map
     default = {
-        Name = "NSP-NATGW"
+        Name = "nsp-natgw"
         DontDelete = "true"
     }
 }
