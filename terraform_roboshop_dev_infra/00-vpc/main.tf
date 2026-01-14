@@ -9,7 +9,7 @@ module "vpc" {
 
     # public subnets
     public-cidr-blocks = var.public-cidr-blocks
-    # vpc_pub_subnet_tags = var.vpc_pub_subnet_tags
+    vpc_pub_subnet_tags = var.vpc_pub_subnet_tags
 
     # private subnets
     private-cidr-blocks = var.private-cidr-blocks
