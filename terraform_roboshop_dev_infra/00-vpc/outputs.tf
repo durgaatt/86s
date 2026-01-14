@@ -13,3 +13,7 @@ output "priv_subnet_id" {
 output "db_subnet_id" {
   value = module.vpc.database_subnet_ids
 }
+
+output "aws_vpc_peering_id" {
+  value = module.vpc_peering_connection_id
+}
