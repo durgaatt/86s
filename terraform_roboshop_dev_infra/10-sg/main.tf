@@ -13,7 +13,7 @@
 module "sg" {
   count = length(var.sg_names)
   source = "git::https://github.com/durgaatt/86s.git//terraform-sg-module?ref=main"
-  project_name = var.project
+  project = var.project
   environment = var.environment
   sg_name = var.sg_names[count.index]
   sg_description = "Created for ${var.sg_names[count.index]}"
