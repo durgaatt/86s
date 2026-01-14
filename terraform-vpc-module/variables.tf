@@ -1,4 +1,4 @@
-variable "cidr_ip" {
+variable "cidr_ips" {
    type        = string
    description = "Please provide VPC CIDR"
 }

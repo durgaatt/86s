@@ -1,4 +1,4 @@
-variable "cidr_ip" {
+variable "cidr_ips" {
    default = "10.10.0.0/16"
 }
 
