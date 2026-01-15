@@ -122,5 +122,5 @@ variable "peering_tags" {
 
 variable "is_peering_required" {
   type    = bool
-  default = true
+  default = false
 }
