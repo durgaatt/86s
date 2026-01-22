@@ -20,3 +20,12 @@ provider "aws" {
   # Configuration options
 }
 
+  #  terraform.exe workspace list
+  #  terraform.exe workspace new dev
+  #  terraform.exe workspace list
+  #  terraform.exe workspace select default
+  #  terraform.exe workspace list
+  #  terraform.exe workspace select dev
+  #  terraform.exe workspace list
+  #  terraform.exe plan init
+
