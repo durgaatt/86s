@@ -1,0 +1,2 @@
+How do we call module inside a module in terraform?
+-->A module is called inside another module using the module block, and communication happens strictly through input variables and output values, which automatically creates the dependency order in Terraform.
