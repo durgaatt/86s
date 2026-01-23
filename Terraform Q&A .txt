@@ -1,2 +1,10 @@
-How do we call module inside a module in terraform?
+1.How do we call module inside a module in terraform ?
 -->A module is called inside another module using the module block, and communication happens strictly through input variables and output values, which automatically creates the dependency order in Terraform.
+
+2.How do you recover statefile in terraform ?
+-->Terraform state can be recovered by restoring it from a backend (like S3 with versioning), a local state backup, or by re-importing existing resources using terraform import.
+
+3.How do you manage your terraform architecture in your environment ?
+--> We manage Terraform architecture using a modular design with reusable modules, environment-specific configurations, remote state backends, and CI/CD pipelines to ensure consistency, scalability, and safe deployments.
+
+4.
