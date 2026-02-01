@@ -84,9 +84,8 @@ variable "database_rt_tags" {
     }
 }
 
-variable "dest-cidr" {
+variable "dest_cidr" {
   type = string
-  default = ""
 }
 
 variable "eip_tags" {

@@ -11,13 +11,13 @@ variable "project" {
 }
 
 variable "environment" {
-  default = "dev"
+  default = "test"
 }
 
 variable "vpc_tags" {
     type = map
     default = {
-        Name = "NSP"
+        Name = "VPC"
         DontDelete = "true"
     }
 }
@@ -25,7 +25,7 @@ variable "vpc_tags" {
 variable "vpc_pub_subnet_tags" {
     type = map
     default = {
-        Name = "nsp-pub-subnet"
+        Name = "vpc-pub-subnet"
         DontDelete = "true"
     }
 }
@@ -33,7 +33,7 @@ variable "vpc_pub_subnet_tags" {
 variable "vpc_priv_subnet_tags" {
     type = map
     default = {
-        Name = "nsp-priv-subnet"
+        Name = "vpc-priv-subnet"
         DontDelete = "true"
     }
 }
@@ -41,7 +41,7 @@ variable "vpc_priv_subnet_tags" {
 variable "vpc_db_subnet_tags" {
     type = map
     default = {
-        Name = "nsp-db-subnet"
+        Name = "vpc-db-subnet"
         DontDelete = "true"
     }
 }
@@ -49,6 +49,7 @@ variable "vpc_db_subnet_tags" {
 variable "public-cidr-blocks" {
   type = list
   default = ["10.10.10.0/24","10.10.11.0/24"]
+ 
 }
 
 variable "private-cidr-blocks" {
@@ -64,7 +65,7 @@ variable "database-cidr-blocks" {
 variable "igw_tags" {
     type = map
     default = {
-        Name = "NSP-IGW"
+        Name = "VPC-IGW"
         DontDelete = "true"
     }
 }
@@ -72,15 +73,20 @@ variable "igw_tags" {
 variable "public_rt_tags" {
     type = map
     default = {
-        Name = "NSP-pub-rt"
+        Name = "VPC-pub-rt"
         DontDelete = "true"
     }
+}
+
+variable "dest_cidr" {
+  type = string
+  default = "0.0.0.0/0"
 }
 
 variable "private_rt_tags" {
     type = map
     default = {
-        Name = "NSP-priv-rt"
+        Name = "VPC-priv-rt"
         DontDelete = "true"
     }
 }
@@ -88,7 +94,7 @@ variable "private_rt_tags" {
 variable "database_rt_tags" {
     type = map
     default = {
-        Name = "NSP-db-rt"
+        Name = "VPC-db-rt"
         DontDelete = "true"
     }
 }
@@ -109,6 +115,14 @@ variable "nat_gateway_tags" {
     }
 }
 
-variable "dest-cidr" {
-  default = "0.0.0.0/0"
+variable "is_peering_required" {
+    type = bool
+    default = false
+}
+
+variable "peering_tags" {
+   type = map
+   default = {
+      Name = "VPC-2-Default-Peering"
+    }
 }

@@ -12,6 +12,39 @@ and CI/CD pipelines to ensure consistency, scalability, and safe deployments.
                              or
 --> In our environment, we follow a modular Terraform architecture where core infrastructure components like VPC, IAM, and compute are built as reusable modules. 
 Each environment (dev, test, prod) has separate state files managed through a remote backend such as S3 with DynamoDB locking. 
-We use variables and workspaces or environment folders to isolate configurations, enforce versioning for providers and modules, and run Terraform through CI/CD pipelines with plan and approval stages to avoid manual changes and state conflicts.
+We use variables and workspaces or environment folders to isolate configurations, enforce versioning for providers and modules, and run Terraform through CI/CD pipelines with plan 
+and approval stages to avoid manual changes and state conflicts.
 
-4.
+4.Explain about Terraform architecture ?
+
+5.When executing terraform apply command , its running slowly. How to troubleshoot performance issues in terraform?
+
+6.How to store terraform statefile in remote?
+
+7.How do you configure same infra configuration for 3 diff enviromnets ?
+
+8.How to automate your terrafrom scripts ?
+
+9.var.tf vs tfvars?
+
+10.Launched instances in aws form gui and how to import them to tfstate file ?
+
+11.What is null resources in terraform ?
+
+12.What is taint resource in terrafrom ?
+
+13.Null resource vs data resource in terraform?
+
+14.How to cretae terraform resources in multiple regions?
+
+15.Auto scaling, Loadbalancing, VPC/Networking in terraform?
+
+16.How to copy a file form local to remote using terraform?
+
+17.How to attach subnet and instances using for each in terraform ?
+
+18.How to attach storage to instance using terraform?
+
+19.How to upgrade K8S using terraform?
+
+20.

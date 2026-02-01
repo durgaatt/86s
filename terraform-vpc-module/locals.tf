@@ -6,4 +6,5 @@ locals{
     }
     common_name_suffix = "${var.project}-${var.environment}" # roboshop-dev
     az_names = slice(data.aws_availability_zones.available.names, 0, 2 )
+   #az_names = data.aws_availability_zones.available.names
  }

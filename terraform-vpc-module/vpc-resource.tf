@@ -4,7 +4,7 @@ resource "aws_vpc" "this" {
 
   tags = merge(var.vpc_tags,local.common_tags,
   {
-    Name = "${local.common_name_suffix}-${var.vpc_tags.Name}"
+    Name = "${local.common_name_suffix}-${var.vpc_tags.Name}" # "{roboshop-dev}"-"{VPC}"
   }
   )
 }
@@ -55,7 +55,7 @@ tags = merge(var.igw_tags,local.common_tags,
   }
   )
 
-}
+ }
 
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.this.id
@@ -65,6 +65,18 @@ resource "aws_route_table" "public" {
     Name = "${local.common_name_suffix}-${var.public_rt_tags.Name}"
   }
   )
+}
+
+resource "aws_route" "public" {
+  route_table_id            = aws_route_table.public.id
+  destination_cidr_block    = var.dest_cidr
+  gateway_id = aws_internet_gateway.gw.id
+}
+
+resource "aws_route_table_association" "public" {
+  count=length(var.public-cidr-blocks)
+  subnet_id      = aws_subnet.public[count.index].id
+  route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table" "private" {
@@ -87,11 +99,6 @@ resource "aws_route_table" "database" {
   )
 }
 
-resource "aws_route" "public" {
-  route_table_id            = aws_route_table.public.id
-  destination_cidr_block    = var.dest-cidr
-  gateway_id = aws_internet_gateway.gw.id
-}
 
 resource "aws_eip" "nat" {
   domain   = "vpc"
@@ -121,21 +128,16 @@ resource "aws_nat_gateway" "nat" {
 
 resource "aws_route" "private" {
   route_table_id            = aws_route_table.private.id
-  destination_cidr_block    = var.dest-cidr
+  destination_cidr_block    = var.dest_cidr
   gateway_id = aws_nat_gateway.nat.id
 }
 
 resource "aws_route" "database" {
   route_table_id            = aws_route_table.database.id
-  destination_cidr_block    = var.dest-cidr
+  destination_cidr_block    = var.dest_cidr
   gateway_id = aws_nat_gateway.nat.id
 }
 
-resource "aws_route_table_association" "public" {
-  count = length(var.public-cidr-blocks)
-  subnet_id      = aws_subnet.public[count.index].id
-  route_table_id = aws_route_table.public.id
-}
 
 resource "aws_route_table_association" "private" {
    count = length(var.private-cidr-blocks)
@@ -147,4 +149,4 @@ resource "aws_route_table_association" "database" {
    count = length(var.database-cidr-blocks)
   subnet_id      = aws_subnet.database[count.index].id
   route_table_id = aws_route_table.database.id
-}
+ }
