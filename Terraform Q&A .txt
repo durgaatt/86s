@@ -47,4 +47,41 @@ and approval stages to avoid manual changes and state conflicts.
 
 19.How to upgrade K8S using terraform?
 
-20.
+20.Error: deleting EC2 VPC (vpc-0f9d2a4628219df9b): operation error EC2: DeleteVpc, 
+https response error StatusCode: 400, RequestID: 93cad9e3-8d76-444d-a199-65a3944d6037, 
+api error DependencyViolation: The vpc 'vpc-0f9d2a4628219df9b' has dependencies and cannot be deleted.
+
+1. Subnets: aws ec2 describe-subnets --filters Name=vpc-id,Values=vpc-0f9d2a4628219df9b
+
+2. IGW: aws ec2 describe-internet-gateways --filters Name=attachment.vpc-id,Values=vpc-0f9d2a4628219df9b
+
+3. NATGW: aws ec2 describe-nat-gateways --filter Name=vpc-id,Values=vpc-0f9d2a4628219df9b
+
+4. RT: aws ec2 describe-route-tables --filters Name=vpc-id,Values=vpc-0f9d2a4628219df9b
+
+5. SG: aws ec2 describe-security-groups --filters Name=vpc-id,Values=vpc-0f9d2a4628219df9b
+
+6. VPC EndPoints: aws ec2 describe-vpc-endpoints --filters Name=vpc-id,Values=vpc-0f9d2a4628219df9b
+
+7. VPC Peering Connections: aws ec2 describe-vpc-peering-connections --filters Name=requester-vpc-info.vpc-id,Values=vpc-0f9d2a4628219df9b
+
+8. Network Interfaces: aws ec2 describe-network-interfaces --filters Name=vpc-id,Values=vpc-0f9d2a4628219df9b
+
+
+✅ Correct deletion order (important)
+
+Terraform should do this automatically if dependencies are modeled correctly:
+
+EC2 / RDS / LB
+
+ENIs
+
+NAT Gateway
+
+Route tables
+
+Subnets
+
+IGW
+
+VPC
