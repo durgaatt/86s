@@ -11,13 +11,13 @@ variable "project" {
 }
 
 variable "environment" {
-  default = "dev"
+  default = "test"
 }
 
 variable "vpc_tags" {
     type = map
     default = {
-        Name = "nsp"
+        Name = "vpc1"
         DontDelete = "true"
     }
 }
@@ -25,7 +25,7 @@ variable "vpc_tags" {
 variable "vpc_pub_subnet_tags" {
     type = map
     default = {
-        Name = "nsp-pub-subnet"
+        Name = "vpc1-pub-subnet"
         DontDelete = "true"
     }
 }
@@ -33,7 +33,7 @@ variable "vpc_pub_subnet_tags" {
 variable "vpc_priv_subnet_tags" {
     type = map
     default = {
-        Name = "nsp-priv-subnet"
+        Name = "vpc1-priv-subnet"
         DontDelete = "true"
     }
 }
@@ -41,7 +41,7 @@ variable "vpc_priv_subnet_tags" {
 variable "vpc_db_subnet_tags" {
     type = map
     default = {
-        Name = "nsp-db-subnet"
+        Name = "vpc1-db-subnet"
         DontDelete = "true"
     }
 }
@@ -64,7 +64,7 @@ variable "database-cidr-blocks" {
 variable "igw_tags" {
     type = map
     default = {
-        Name = "nsp-igw"
+        Name = "vpc1-igw"
         DontDelete = "true"
     }
 }
@@ -72,7 +72,7 @@ variable "igw_tags" {
 variable "public_rt_tags" {
     type = map
     default = {
-        Name = "nsp-pub-rt"
+        Name = "vpc1-pub-rt"
         DontDelete = "true"
     }
 }
@@ -80,7 +80,7 @@ variable "public_rt_tags" {
 variable "private_rt_tags" {
     type = map
     default = {
-        Name = "nsp-priv-rt"
+        Name = "vpc1-priv-rt"
         DontDelete = "true"
     }
 }
@@ -88,7 +88,7 @@ variable "private_rt_tags" {
 variable "database_rt_tags" {
     type = map
     default = {
-        Name = "nsp-db-rt"
+        Name = "vpc1-db-rt"
         DontDelete = "true"
     }
 }
@@ -96,7 +96,7 @@ variable "database_rt_tags" {
 variable "eip_tags" {
     type = map
     default = {
-        Name = "nsp-eip"
+        Name = "vpc1-eip"
         DontDelete = "true"
     }
 }
@@ -104,7 +104,7 @@ variable "eip_tags" {
 variable "nat_gateway_tags" {
     type = map
     default = {
-        Name = "nsp-natgw"
+        Name = "vpc1-natgw"
         DontDelete = "true"
     }
 }
@@ -116,7 +116,7 @@ variable "dest-cidr" {
 variable "peering_tags" {
    type = map
    default = {
-      Name = "nsp-defalut-peering"
+      Name = "vpc1-2-defalutvpc-peering"
     }
 }
 
