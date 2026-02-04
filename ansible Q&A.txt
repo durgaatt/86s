@@ -1,0 +1,5 @@
+1.What are Ansible roles?
+-->Ansible roles is a proper directory structure of creating playbooks, maintaining and reusing. 
+roles will have tasks, files, vars, defaults, handlers, templates. By default role will try to load main.yaml in each directory.
+
+2.
