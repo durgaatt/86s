@@ -1,5 +1,5 @@
 - name: "setup {{component}} server"
-  hosts: local
+  hosts: "local"
   become: yes
   roles:
   - "{{component}}"
