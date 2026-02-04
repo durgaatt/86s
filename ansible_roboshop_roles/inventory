@@ -2,7 +2,7 @@
 localhost
 
 [mongodb]
-mongodb.zaws.online
+localhost
 
 [catalogue]
 catalogue.zaws.online
