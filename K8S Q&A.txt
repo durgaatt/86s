@@ -1,0 +1,41 @@
+Expain about kubernets architecture
+What is pod and container
+what is kube config
+what is rule binding and cluster rule binding 
+what is service and types of services in k8s
+Diff between services / purpose of services / where we will use it scenirio 
+what is ingress controller and purpose of this
+Diff between services and ingress controller
+How to create a POD manifest file in k8s
+how to create a service manifest file in k8s
+how to create a ingress controller in k8s
+how to add 1 tb storgae to POD ?
+what is Persistent volume and Pesistent Volume Claim
+What are diff storgae classes is k8s
+Diff types of probs in k8s
+what is replicaset 
+what is deamonset
+what is statefulset
+what is init container and Sidecar container in k8s
+How to upgrade k8s 
+what is k8s autoscaler 
+what is horizontal pod autoscaler in k8s
+Pod service down how to troubleshoot
+how to check logs in k8s
+how to recover CrashLoopBackOff?
+explain pod security standards and how to establish pod to pod communication
+how to access enduser application in k8s pod
+if pod is in pending state how to troubleshoot
+how to configure secrets in k8s and its uses 
+how to import/intigrate aws secrets to k8s 
+how to integrate jenkins in k8s 
+how to create a user in k8s
+how to take cluser backup in k8s
+how to implement the rollback in Kubernetes
+What is ISTIO ?
+How to add a new node to k8s cluster
+What is Federation in Kubernetes?
+What is a CRD in Kubernetes?
+How to install helm chart and its uses 
+helm architecture
+How to automate scripts in K8S
