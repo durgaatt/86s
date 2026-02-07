@@ -2,20 +2,53 @@
 -->A module is called inside another module using the module block, and communication happens strictly through input variables and output values, 
 which automatically creates the dependency order in Terraform.
 
+Example:if I have a network module that creates a VPC, I can call a subnet module inside it by using a relative path like source = "./modules/subnet" and
+ passing the VPC ID as an input variable.
+
+Root module: The entry point where you run terraform apply.
+Child module: A module called from the root.
+Nested module: A module called from inside another child module.
+
+project/
+├── main.tf              # Root module
+├── modules/
+│   ├── network/
+│   │   ├── main.tf      # Child module
+│   │   └── modules/
+│   │       └── subnet/
+│   │           └── main.tf   # Nested module
+
+
 2.How do you recover statefile in terraform ?
--->Terraform state can be recovered by restoring it from a backend (like S3 with versioning), a local state backup, 
-or by re-importing existing resources using terraform import.
+--> If statefile gets lost or corrupted, recovery depends on how we are storing it.
+    >If we are using a remote backend like S3, Azure Blob, or Terraform Cloud, you can usually restore from the backend’s versioning or snapshots. 
+    For example, S3 with versioning lets you roll back to a previous state file.
+    >If you only had a local state file, you’d need to restore it from a backup if one exists.
+    >You can run terraform import to rebuild the state by importing existing resources back into Terraform. 
+    This is more manual but ensures Terraform regains awareness of the infrastructure.
+Best practice is always to use a remote backend with versioning enabled, so recovery is straightforward."
 
 3.How do you manage your terraform architecture in your environment ?
 --> We manage Terraform architecture using a modular design with reusable modules, environment-specific configurations, remote state backends, 
 and CI/CD pipelines to ensure consistency, scalability, and safe deployments.
-                             or
---> In our environment, we follow a modular Terraform architecture where core infrastructure components like VPC, IAM, and compute are built as reusable modules. 
-Each environment (dev, test, prod) has separate state files managed through a remote backend such as S3 with DynamoDB locking. 
-We use variables and workspaces or environment folders to isolate configurations, enforce versioning for providers and modules, and run Terraform through CI/CD pipelines with plan 
-and approval stages to avoid manual changes and state conflicts.
+                                        or
+-->"I manage Terraform architecture by following a modular, scalable, and secure approach.
+    >Modular Design: I break infrastructure into reusable modules—for example, separate modules for networking, compute, and storage. This keeps configurations clean and promotes reusability across environments.
+    >Environment Separation: I maintain separate workspaces or directories for dev, staging, and production, ensuring isolation and reducing risk of accidental changes.
+    >Remote State Management: I store state files in a remote backend like S3 with DynamoDB for state locking, or Terraform Cloud, so the team has a single source of truth and avoids conflicts.
+    >Version Control: All Terraform code is kept in Git, with branching strategies and pull requests for peer review. This enforces collaboration and change control.
+    >CI/CD Integration: I integrate Terraform with pipelines (Jenkins, GitHub Actions, or Azure DevOps) to automate plan and apply steps, with approvals required for production changes.
+    >Security & Governance: Sensitive variables are managed through environment variables or secret managers like Vault/SSM, and policies are enforced with tools like Sentinel or OPA.
+    >Documentation & Outputs: Each module exposes clear outputs, and I document usage so other teams can easily consume the infrastructure as code.
 
 4.Explain about Terraform architecture ?
+-->"Terraform follows a client–server style architecture but is lightweight. At its core, it has three main components:
+    Core (Terraform CLI): This is the engine that reads configuration files, builds the dependency graph, and executes plans. It’s responsible for comparing the desired state with the current state and deciding what changes to make.
+    Providers: These are plugins that allow Terraform to interact with external systems like AWS, Azure, GCP, Kubernetes, or even SaaS services. Each provider translates Terraform’s generic resource syntax into API calls for that platform.
+    State File: Terraform maintains a state file that maps your configuration to real-world resources. This is critical for tracking what exists, detecting drift, and planning updates. State can be stored locally or in a remote backend like S3, Azure Blob, or Terraform Cloud, often with locking to prevent conflicts.
+    Modules: These are collections of resources packaged together for reuse. They help organize infrastructure into logical units and promote consistency across environments.
+The workflow is: you write declarative configuration in HCL, Terraform builds a dependency graph, generates an execution plan, and then applies changes via providers while updating the state file.
+This architecture makes Terraform scalable, cloud-agnostic, and suitable for managing complex infrastructure consistently across multiple environments."
 
 5.When executing terraform apply command , its running slowly. How to troubleshoot performance issues in terraform?
 

@@ -1,5 +1,9 @@
 1.What are Ansible roles?
 -->Ansible roles is a proper directory structure of creating playbooks, maintaining and reusing. 
-roles will have tasks, files, vars, defaults, handlers, templates. By default role will try to load main.yaml in each directory.
+A role contains directories such as tasks, files, vars, commons, defaults, handlers, and templates. By default role will try to load main.yaml in each directory.
 
-2.
+2.what is Jinja2 templates?
+-->"Jinja2 templates use placeholders like {{ variable }} which get replaced at runtime with actual values, 
+allowing dynamic configuration files and scripts to be generated based on context."
+
+3.
