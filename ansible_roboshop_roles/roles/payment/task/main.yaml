@@ -1,0 +1,20 @@
+  - name: install python package
+    dnf:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - python3
+    - gcc
+    - python3-devel
+
+  - name: app setup
+    import_role:
+      name: common
+      tasks_from: app-setup.yaml
+
+  - name: install dependencies
+    pip:
+      requirements: requirements.txt
+      executable: pip3.9
+    args:
+      chdir: /app
