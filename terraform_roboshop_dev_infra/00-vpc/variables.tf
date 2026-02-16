@@ -109,7 +109,7 @@ variable "nat_gateway_tags" {
     }
 }
 
-variable "dest-cidr" {
+variable "dest_cidr" {
   default = "0.0.0.0/0"
 }
 

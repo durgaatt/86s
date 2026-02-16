@@ -7,7 +7,7 @@ module "vpc" {
     project = var.project
     environment = var.environment
     vpc_tags = var.vpc_tags
-    dest-cidr = var.dest-cidr
+    dest_cidr = var.dest_cidr
    
 
     # public subnets

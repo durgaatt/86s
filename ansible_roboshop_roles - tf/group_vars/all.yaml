@@ -1,0 +1,9 @@
+MONGODB_HOST: mongodb.zaws.online
+REDIS_HOST: redis.zaws.online
+CATALOGUE_HOST: catalogue.zaws.online
+CART_HOST: cart.zaws.online
+USER_HOST: user.zaws.online
+RABBITMQ_HOST: rabbitmq.zaws.online
+MYSQL_HOST: mysql.zaws.online
+SHIPPING_HOST: shipping.zaws.online
+PAYMENT_HOST: payment.zaws.online
