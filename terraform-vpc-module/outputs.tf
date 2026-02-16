@@ -14,9 +14,9 @@ output "database_subnet_ids" {
     value = aws_subnet.database[*].id
 }
 
-output "aws_vpc_peering_id" {
-  value = aws_vpc_peering_connection.default[0].id
-}
+# output "aws_vpc_peering_id" {
+#   value = aws_vpc_peering_connection.default[0].id
+# }
 
 
 # output "availability_zone" {
